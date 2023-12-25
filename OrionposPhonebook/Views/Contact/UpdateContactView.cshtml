@@ -38,7 +38,11 @@
 {
     <script>
         $(document).ready(() => {
-            console.log('contact', @Html.Raw(ViewData["Contact"]))
+            // UpdateContactModel içindeki verileri alarak form alanlarını doldur
+            var contactData = @Html.Raw(ViewData["Contact"]);
+            $('#FirstName').val(contactData.FirstName);
+            $('#LastName').val(contactData.LastName);
+            $('#PhoneNumber').val(contactData.PhoneNumber);
         })
     </script>
 }

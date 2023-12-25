@@ -4,6 +4,11 @@
     Layout = "_Layout";
     ViewData["Title"] = "Telefon Rehberi";
 }
+@section head {
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/Phonebook.css" asp-append-version="true" />
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +22,8 @@
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastr@2"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/dist/font/bootstrap-icons.css" rel="stylesheet">
+    
 
 </head>
 
