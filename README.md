@@ -20,7 +20,13 @@
 
 ## Description
 The Phonebook Web Application is a modern MVC-based project developed with .NET 8.0 for the back-end, HTML, CSS, and JavaScript for the front-end. The application provides a user-friendly interface for managing a phonebook, allowing users to add, edit, and delete contacts efficiently.
-
+![phonebook1](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/08f97fdb-2925-4855-855b-7a660c24216c)
+![phonebook2](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/7a602713-b366-4ffd-a9c3-aca44ccb7ae5)
+![phonebook3](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/d5665622-4496-44ac-82ab-2a48b4476f10)
+![phonebook4](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/3ccb04dc-35df-4868-8976-5434caef6d21)
+![phonebook5](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/a96abb64-846c-4eb7-bee4-f783699b6826)
+![phonebook6](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/e44803ed-0edb-40c1-ac4c-b72b5fc4f78d)
+![phonebook7](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/81715ef3-c486-45e5-be1b-b02a5c27ba53)
 ## Features
 - **Soft Delete**: Implemented a soft delete mechanism for safer data removal.
 - **User Tracking**: Records the user who added a contact and the date of the record using cookies and services.
