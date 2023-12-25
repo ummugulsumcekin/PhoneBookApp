@@ -17,41 +17,48 @@
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastr@2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/font/bootstrap-icons.css">
+
 </head>
 
 
-    <div class="container">
-        <div class="row my-4">
-          
-            <div class="col-6 text-end">
-                <button id="addContactButton" class="btn btn-primary">
-                    <i class="bi bi-plus-circle-fill"></i> Yeni Kayıt Ekle
-                </button>
-            </div>
-        </div>
-
-        <div class="row my-4">
-            <div class="col-12">
-                <!-- Bootstrap Table -->
-            <table id="tblData" class="table table-bordered table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th data-checkbox="true"></th>
-                        <th data-field="id" style="display:none;"></th> <!-- id'yi gizle -->
-                        <th data-field="name">Ad</th>
-                        <th data-field="surname">Soyad</th>
-                        <th data-field="number">Telefon No.</th>
-                        
-                    </tr>
-                </thead>
-            </table>
-
+<div class="container-fluid">
+    <!-- Use container-fluid to make it a full-width container -->
+    
+    <div class="row my-4">
+        <div class="col-12">
             <div class="row my-4">
                 <div class="col-12">
                     <button class="btn btn-primary mx-2" id="editSelected">Seçilenleri Düzenle</button>
                     <button class="btn btn-danger mx-2" id="deleteSelected">Seçilenleri Sil</button>
+                    <a asp-controller="Contact" asp-action="AddContactView" class="btn btn-success">
+                        Yeni Kayıt Ekle
+                    </a>
+                   
                 </div>
+                
             </div>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-12">
+            <!-- Bootstrap Table -->
+            <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th data-checkbox="true"></th>
+                        <th data-field="id" style="display:none;"></th>
+                        <th data-field="name">Ad</th>
+                        <th data-field="surname">Soyad</th>
+                        <th data-field="number">Telefon No.</th>
+                    </tr>
+                </thead>
+            </table>
+
+            
+        </div>
+    </div>
+
 
             @section Scripts {
                 <script src="https://cdn.datatables.net/1.11.10/js/jquery.dataTables.min.js"></script>
