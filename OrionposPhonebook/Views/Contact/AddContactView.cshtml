@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Telefon Ekleme";
-
 }
 
 @if (ViewData["Error"] != null)
@@ -10,7 +9,7 @@
     <p>@ViewData["Error"]</p>
 }
 
-@using (Html.BeginForm("AddContactForm", "Contact", FormMethod.Post))
+@using (Html.BeginForm("AddContactForm", "Contact", FormMethod.Post, new { id = "addContactForm" }))
 {
     <table>
         <tr>
@@ -27,8 +26,54 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Kayıt Ekle" />
+                <input type="submit" value="Kayıt Ekle" id="submitBtn" />
             </td>
         </tr>
     </table>
+}
+
+<!-- Modal -->
+<div class="modal" id="addContactModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Yeni Kişi Ekle</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Burada modal içeriğini düzenleyebilirsiniz -->
+                <p>Modal içeriği buraya gelecek.</p>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary" id="saveContactBtn">Kaydet</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal script -->
+@section Scripts {
+    <script>
+        // Eğer modal içinde bir form varsa, formun submit olayını ele almak için gerekli script
+        $('#addContactForm').submit(function (e) {
+            e.preventDefault();
+
+            // AJAX isteği veya diğer işlemleri gerçekleştir
+            // ...
+
+            // Başarılı bir şekilde işlem gerçekleştikten sonra modalı kapat
+            $('#addContactModal').modal('hide');
+        });
+
+        // Modal açmak için kullanılacak script
+        $('#addContactModal').modal('show');
+    </script>
 }

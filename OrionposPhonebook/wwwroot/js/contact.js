@@ -7,25 +7,15 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#tblData').DataTable({
         "ajax": { url: '/Contact/GetAllContacts' },
-
         "columns": [
-            { data: 'firstName', "width": "28%" },
-            { data: 'lastName', "width": "28%" },
-            { data: 'phoneNumber', "width": "12%" },
-
-            {
-                data: 'id',
-                "render": function (data) {
-                    return `<div class="w-75 btn-group" role="group">
-                     <a href="/Contact/UpdateContactView/${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-                     <a onClick="Delete(${data})" class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
-                    </div>`;
-                },
-                "width": "25%"
-            }
+            { data: 'firstName', "width": "25%" },
+            { data: 'lastName', "width": "25%" },
+            { data: 'phoneNumber', "width": "25%" },
+            
+            
         ],
-        "success": function (data) {
-            console.log("Data from API:", data);
+        "initComplete": function (settings, json) {
+            hideLoadingIndicator();  // DataTable yüklendiğinde loading indicator'ı gizle
         }
     });
 }
@@ -58,6 +48,35 @@ function Delete(id) {
     });
 }
 
+// AddContactForm submit event handler
+$('#addContactForm').submit(function (e) {
+    e.preventDefault();
+
+    // Form verilerini al
+    var formData = {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        phoneNumber: $('#phoneNumber').val()
+    };
+
+    // AJAX ile yeni kayıt ekleme işlemini gerçekleştir
+    $.ajax({
+        type: 'POST',
+        url: '/Contact/AddContactForm',
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        success: function (data) {
+            // Başarılı olduğunda modalı kapat ve tabloyu güncelle
+            $('#addContactModal').modal('hide');
+            dataTable.ajax.reload();  // DataTable'ı yeniden yükle
+            toastr.success('Yeni kayıt başarıyla eklendi.');
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+});
+
 // Function to show the loading indicator
 function showLoadingIndicator() {
     document.getElementById('loadingIndicator').style.display = 'block';
@@ -67,12 +86,3 @@ function showLoadingIndicator() {
 function hideLoadingIndicator() {
     document.getElementById('loadingIndicator').style.display = 'none';
 }
-
-// Call the showLoadingIndicator function when the page is loading
-showLoadingIndicator();
-
-// Simulate an asynchronous action (e.g., loading data)
-setTimeout(function () {
-    // Call the hideLoadingIndicator function when the content is loaded
-    hideLoadingIndicator();
-}, 2000); // Adjust the timeout as needed
