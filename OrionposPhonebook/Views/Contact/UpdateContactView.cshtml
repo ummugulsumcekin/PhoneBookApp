@@ -1,0 +1,44 @@
+﻿@model OrionposPhonebook.Models.ContactModels.UpdateContactModel
+
+@{
+    var contactId = int.Parse(ViewContext.RouteData.Values["contactId"].ToString());
+    ViewData["Title"] = "Telefon Güncelleme";
+}
+
+
+@if (ViewData["Error"] != null)
+{
+    <p>@ViewData["Error"]</p>
+}
+
+@using (Html.BeginForm("UpdateContactForm", "Contact", new { contactId }, FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Ad: </td>
+            <td>@Html.TextBoxFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>Soyad: </td>
+            <td>@Html.TextBoxFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td>Telefon Numarası: </td>
+            <td>@Html.TextBoxFor(model => model.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kayıt Güncelle" />
+            </td>
+        </tr>
+    </table>
+}
+
+@section Scripts
+{
+    <script>
+        $(document).ready(() => {
+            console.log('contact', @Html.Raw(ViewData["Contact"]))
+        })
+    </script>
+}

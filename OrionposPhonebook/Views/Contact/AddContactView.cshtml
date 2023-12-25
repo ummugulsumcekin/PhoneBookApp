@@ -1,0 +1,34 @@
+﻿@model OrionposPhonebook.Models.ContactModels.AddContactModel
+
+@{
+    ViewData["Title"] = "Telefon Ekleme";
+
+}
+
+@if (ViewData["Error"] != null)
+{
+    <p>@ViewData["Error"]</p>
+}
+
+@using (Html.BeginForm("AddContactForm", "Contact", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Ad: </td>
+            <td>@Html.TextBoxFor(model => model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>Soyad: </td>
+            <td>@Html.TextBoxFor(model => model.LastName)</td>
+        </tr>
+        <tr>
+            <td>Telefon Numarası: </td>
+            <td>@Html.TextBoxFor(model => model.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kayıt Ekle" />
+            </td>
+        </tr>
+    </table>
+}

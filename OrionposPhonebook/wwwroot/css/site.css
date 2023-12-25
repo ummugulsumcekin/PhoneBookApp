@@ -1,0 +1,88 @@
+/* Navbar style */
+.navbar {
+    background: rgba(48, 54, 65, 1);
+}
+
+    /* Navbar link color */
+    .navbar a {
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(255, 255, 255, 1);
+    }
+
+/* Active dropdown background color */
+.nav-item.dropdown:hover .nav-link,
+.nav-item.dropdown.show .nav-link {
+    background: rgba(48, 54, 65, 1);
+}
+
+/* Dropdown button style */
+.nav-item.dropdown .nav-link {
+    background: rgba(3, 3, 4, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Dropdown menu settings */
+.nav-item.dropdown.show .dropdown-menu {
+    background: rgba(3, 3, 4, 1);
+}
+
+    /* Dropdown menu item text color */
+    .nav-item.dropdown.show .dropdown-menu .dropdown-item {
+        color: rgba(255, 255, 255, 1);
+        font-family: Arial;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+        /* Hover effect for dropdown menu items */
+        .nav-item.dropdown.show .dropdown-menu .dropdown-item:hover {
+            background: rgba(48, 54, 65, 1); /* Navbar'ýn rengiyle ayný */
+        }
+
+/* Additional styles */
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}

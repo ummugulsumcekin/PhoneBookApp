@@ -1,0 +1,126 @@
+﻿@model IEnumerable<OrionposPhonebook.Models.Entities.Contact>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Telefon Rehberi";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Left Side - Card Structure -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Left side content here -->
+                        <a asp-controller="Contact" asp-action="AddContactView">Ekle</a>
+                        <a asp-controller="Contact" asp-action="UpdateContactView">Düzenle</a>
+                        <input id="idsInput" type="text" name="ids" />
+                        <button id="setButton" class="btn btn-danger">Sil</button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#searchModal">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Bootstrap Table within Card -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- Bootstrap Table -->
+                        <table id="tblData" data-toggle="table" data-height="460">
+                            <thead>
+                                <tr>
+                                    <th data-checkbox="true"></th>
+                                    <th data-field="name">Ad</th>
+                                    <th data-field="surname">Soyad</th>
+                                    <th data-field="number">Telefon No.</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="addContactModal">
+        <!-- Modal content for adding contact -->
+    </div>
+
+    <div class="modal" id="updateContactModal">
+        <!-- Modal content for updating contact -->
+    </div>
+
+    <div class="modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Contacts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the selected contacts?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="searchModal">
+        <!-- Modal content for searching -->
+    </div>
+
+    <script>
+        $(document).ready(() => {
+            console.log("rehber", @Html.Raw(ViewData["Contacts"]))
+
+            $("#setButton").on('click', () => {
+                $("#deleteModal").modal("show");
+            });
+
+            $("#confirmDelete").on('click', () => {
+                const ids = $("#idsInput").val().split(',').map(Number);
+
+                var data = { contactIds: ids };
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Contact/RemoveContacts',
+                    data: JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: () => {
+                        console.log('Tablodan idleri çıkar.', ids);
+                        $("#deleteModal").modal("hide");
+                    },
+                    error: () => {
+                        console.log('Hata');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+@section Scripts {
+    <script src="~/js/contact.js"></script>
+    <script src="https://cdn.datatables.net/1.11.10/js/jquery.dataTables.min.js"></script>
+}

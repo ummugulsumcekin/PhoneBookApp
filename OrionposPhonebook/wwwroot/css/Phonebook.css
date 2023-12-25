@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+header {
+    flex-shrink: 0;
+    background-color: rgba(48, 54, 65, 1); /* Set background color for the header */
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+}
+
+.navbar {
+    flex-shrink: 0;
+    width: 200px;
+    flex-direction: column;
+    background-color: rgba(48, 54, 65, 1); /* Set background color for the navbar */
+    padding: 15px;
+}
+
+    .navbar a {
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+.navbar-dark .navbar-brand {
+    color: white; /* Set text color for the brand */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: white; /* Set color for the hamburger icon */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}

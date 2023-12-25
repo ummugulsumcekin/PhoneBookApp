@@ -1,0 +1,53 @@
+﻿@using OrionposPhonebook.Models.Entities
+@using System.Text.Json
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OrionposPhonebook</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/Phonebook.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark w-100">
+            <a class="navbar-brand" href="Home"></a>
+        </nav>
+    </header>
+
+    <main role="main" class="d-flex">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex-column">
+
+            <div class="nav-item dropdown w-100 ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Kişiler
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    @if (ViewData["Contacts"] != null)
+                    {
+                        var contacts = JsonSerializer.Deserialize<IEnumerable<Contact>>(ViewData["Contacts"].ToString());
+                        foreach (var contact in contacts)
+                        {
+                            <a class="nav-link text" asp-area="" asp-controller="Contact" asp-action="ContactDetails" asp-route-id="@contact.Id">@contact.FirstName @contact.LastName</a>
+                        }
+                    }
+                </div>
+            </div>
+        </nav>
+        @RenderBody()
+
+        </div>
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+        <script src="https://cdn.tiny.cloud/1/0wzjspc3o8itbulnnt8ehasmiozxj4db82kz7niy877v6n8h/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

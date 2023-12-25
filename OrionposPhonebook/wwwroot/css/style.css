@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(360deg, #303641 88.58%, rgba(48, 54, 65, 0) 150%);
+}
+
+.container {
+    position: fixed;
+    top: 572px;
+    left: 971px;
+    width: 372px;
+    padding: 20px;
+    background: linear-gradient(180deg, #303641 39.58%, rgba(48, 54, 65, 0) 100%);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex; /* Use flexbox for label and input alignment */
+    align-items: center;
+}
+
+.form-control {
+    flex: 1; /* Take up remaining space */
+    margin-left: 10px; /* Adjust as needed */
+    padding: 6px 11px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.btn {
+    color: #303641;
+    background-color: white;
+    border-color: #303641;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 6px 12px;
+    cursor: pointer;
+
+}
+
+.textfield {
+    width: 472px;
+    height: 48px;
+    top: 572px;
+    left: 971px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+label {
+    font-family: Arial;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    width: 172px;
+    height: 24px;
+    margin-right: 17px; /* Add margin between label and input */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    margin-right: 285px; /* Match the width of the label */
+}
+
+/* Additional styles */
+.login-form {
+    width: 500px;
+    margin: -75px;
+}
+
+.form-check {
+    margin-bottom: 15px;
+}
+
+.header-box {
+    position: fixed;
+    top: 50px;
+    left: -42px;
+    width: 712px;
+    height: 79px;
+    text-align: right;
+}
+
+.header-text {
+    color: white;
+    font-size: 100px;
+    font-family: Eurostar;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Eurostar;
+}
