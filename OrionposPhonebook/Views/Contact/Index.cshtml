@@ -71,9 +71,9 @@
                 <script>
                     var dataTable;
             $(document).ready(function () {
-                // Check if dataTable is already initialized
+                
                 if ($.fn.DataTable.isDataTable('#tblData')) {
-                    // Destroy the existing DataTable before reinitializing
+                   
                     $('#tblData').DataTable().destroy();
                 }
 
@@ -84,19 +84,50 @@
                         dataTable = $('#tblData').DataTable({
                             "ajax": { url: '/Contact/GetAllContacts' },
                             "columns": [
-                                { data: null, "render": function (data) { return '<input type="checkbox" class="contact-checkbox" data-id="' + data.id + '"/>'; }, "width": "5%" },
+                                { data: null, "render": function (data) { return '<input type="checkbox" class="contact-checkbox" data-id="' + data.id + '"/>'; }, "width": "3%" },
                                 { data: 'id', "visible": false },
                                 { data: 'firstName', "width": "20%" },
                                 { data: 'lastName', "width": "20%" },
                                 { data: 'phoneNumber', "width": "20%" },
-                               
-                            ],
+
+                    ], 
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Turkish.json" // Load Turkish language file
+                    },
                             "initComplete": function (settings, json) {
                                 hideLoadingIndicator();
                             }
                         });
-                    }
+             
+                $('#tblData tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder="Ara ' + title + '" data-search="' + title + '" />');
+                });
 
+              
+                dataTable.columns().every(function () {
+                    var that = this;
+                    $('input', this.footer()).on('keyup change', function () {
+                        if (that.search() !== this.value) {
+                            that.search(customSearch(this.value)).draw();
+                        }
+                    });
+                });
+
+           
+                function customSearch(value) {
+                   
+                    
+                    return value
+                        .replace(/[ğĞ]/g, "g")
+                        .replace(/[üÜ]/g, "u")
+                        .replace(/[şŞ]/g, "s")
+                        .replace(/[ıİ]/g, "i")
+                        .replace(/[öÖ]/g, "o")
+                        .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+                        .toLowerCase();
+                }
+            }
                     // Checkbox'ları seçilen kişileri silmek veya düzenlemek için
                     $('#tblData').on('change', '.contact-checkbox', function () {
                         // Seçili checkbox'ların değerlerini al

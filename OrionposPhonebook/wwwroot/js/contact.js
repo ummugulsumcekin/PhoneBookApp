@@ -1,27 +1,4 @@
-﻿var dataTable;
-
-$(document).ready(function () {
-    loadDataTable();
-});
-
-function loadDataTable() {
-    if ($.fn.DataTable.isDataTable('#tblData')) {
-        $('#tblData').DataTable().destroy();
-    }
-    dataTable = $('#tblData').DataTable({
-        "ajax": { url: '/Contact/GetAllContacts' },
-        "columns": [
-            { data: 'firstName', "width": "25%" },
-            { data: 'lastName', "width": "25%" },
-            { data: 'phoneNumber', "width": "25%" },
-            
-            
-        ],
-        "initComplete": function (settings, json) {
-            hideLoadingIndicator();  // DataTable yüklendiğinde loading indicator'ı gizle
-        }
-    });
-}
+﻿
 
 function Delete(id) {
     Swal.fire({
