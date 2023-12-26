@@ -1,5 +1,4 @@
 ﻿
-
 function Delete(id) {
     Swal.fire({
         title: 'Are you sure?',
@@ -27,7 +26,6 @@ function Delete(id) {
         }
     });
 }
-
 
 
 function deleteSelectedContacts(contactIds) {
@@ -58,3 +56,66 @@ function deleteSelectedContacts(contactIds) {
         }
     });
 }
+
+// Checkbox'ları seçilen kişileri silmek veya düzenlemek için
+$('#tblData').on('change', '.contact-checkbox', function () {
+    // Seçili checkbox'ların değerlerini al
+    var selectedIds = [];
+    $('.contact-checkbox:checked').each(function () {
+        selectedIds.push($(this).data('id'));
+    });
+
+    // Seçili checkbox varsa düzenleme veya silme işlemlerini gerçekleştir
+    if (selectedIds.length > 0) {
+        // Birden fazla seçili kişi varsa düzenleme işlemi yapılmaz
+        if (selectedIds.length === 1) {
+            // Düzenleme işlemi
+            $('#editSelected').prop('disabled', false);
+        } else {
+            // Birden fazla seçili kişi varsa düzenleme işlemi devre dışı bırakılır
+            $('#editSelected').prop('disabled', true);
+        }
+
+        // Silme işlemi
+        $('#deleteSelected').prop('disabled', false);
+    } else {
+        // Seçili checkbox yoksa düzenleme ve silme butonlarını devre dışı bırak
+        $('#editSelected').prop('disabled', true);
+        $('#deleteSelected').prop('disabled', true);
+    }
+});
+
+// Silme butonları için click olayları
+$('#tblData').on('click', '.btn-delete', function () {
+    var contactId = $(this).data('id');
+    deleteSelectedContacts([contactId]);
+});
+
+// Düzenleme butonları için click olayları
+$('#tblData').on('click', '.btn-edit', function () {
+    var contactId = $(this).data('id');
+    window.location.href = '/Contact/UpdateContactView/' + contactId;
+});
+
+// Seçilen kişileri silme butonu için click olayı
+$('#deleteSelected').on('click', function () {
+    var selectedIds = [];
+    $('.contact-checkbox:checked').each(function () {
+        selectedIds.push($(this).data('id'));
+    });
+
+    if (selectedIds.length > 0) {
+        deleteSelectedContacts(selectedIds);
+    }
+});
+
+// Seçilen kişiyi düzenleme butonu için click olayı
+$('#editSelected').on('click', function () {
+    var selectedIds = $('.contact-checkbox:checked').map(function () {
+        return $(this).data('id');
+    }).get();
+
+    if (selectedIds.length === 1) {
+        window.location.href = '/Contact/UpdateContactView/' + selectedIds[0];
+    }
+});
