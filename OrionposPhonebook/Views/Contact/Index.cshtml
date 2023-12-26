@@ -70,10 +70,15 @@
 
                 <script>
                     var dataTable;
+            $(document).ready(function () {
+                // Check if dataTable is already initialized
+                if ($.fn.DataTable.isDataTable('#tblData')) {
+                    // Destroy the existing DataTable before reinitializing
+                    $('#tblData').DataTable().destroy();
+                }
 
-                    $(document).ready(function () {
-                        loadDataTable();
-                    });
+                loadDataTable();
+            });
 
                     function loadDataTable() {
                         dataTable = $('#tblData').DataTable({
