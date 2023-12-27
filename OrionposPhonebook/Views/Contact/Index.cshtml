@@ -26,12 +26,35 @@
     
 </head>
 
-<div class="container-fluid">
-    <!-- Use container-fluid to make it a full-width container -->
-    
+<div class="container-fluid"> <br />
+  
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!--AddContact  Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
             <div class="row my-4">
                 <div class="col-12">
-                    <button class="btn btn-primary mx-2" id="editSelected">Seçilenleri Düzenle</button>
+                    <button class="btn btn-primary mx-2" id="editSelected">Kişi Bilgisi Düzenle</button>
                     <button class="btn btn-danger mx-2" id="deleteSelected">Seçilenleri Sil</button>
                     <a asp-controller="Contact" asp-action="AddContactView" class="btn btn-success">
                         Yeni Kayıt Ekle
@@ -42,10 +65,10 @@
             </div>
         
     <div class="row my-4">
-        <div class="col-12">
+        <div class="col-8">
             <!-- Bootstrap Table -->
             <table id="tblData" class="table table-bordered table-striped" style="width:100%">
-                <thead>
+               
                     <tr>
                         <th data-checkbox="true"></th>
                         <th data-field="id" style="display:none;"></th>
@@ -53,7 +76,7 @@
                         <th data-field="surname">Soyad</th>
                         <th data-field="number">Telefon No.</th>
                     </tr>
-                </thead>
+              
             </table>
 
         </div>
@@ -74,6 +97,13 @@
                 }
 
                 loadDataTable();
+            });
+            $(document).ready(function () {
+                $('.table-container').css({
+                    'width': '60%',  // Set the desired width
+                    'float': 'left', // Align to the left
+                    'margin-right': '40%' // Adjust the margin to cover the remaining space on the right
+                });
             });
 
                     function loadDataTable() {
