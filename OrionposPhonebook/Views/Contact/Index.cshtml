@@ -21,6 +21,7 @@
     <script src="https://unpkg.com/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/toastr@2"></script>
     <link rel="stylesheet" href="<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.20.0/dist/font/bootstrap-icons.css" rel="stylesheet">
     
@@ -38,6 +39,7 @@
                     </a>
                    
                 </div>
+
                 
             </div>
         
@@ -58,6 +60,7 @@
 
         </div>
     </div>
+
 
 
     @section Scripts {
@@ -88,14 +91,14 @@
                             "ajax": { url: '/Contact/GetAllContacts' },
                             "columns": [
                                 { data: null, "render": function (data) { return '<input type="checkbox" class="contact-checkbox" data-id="' + data.id + '"/>'; }, "width": "3%" },
-                        { data: 'id', "visible": false },
-                        // First Name column
-                        { data: 'firstName', "title": "Ad", "width": "20%" },
-                        // Last Name column
-                        { data: 'lastName', "title": "Soyad", "width": "20%" },
-                        // Phone Number column
-                        { data: 'phoneNumber', "title": "Telefon No.", "width": "20%" },
-                    ],
+                      { data: 'id', "visible": false },
+            // First Name column
+            { data: 'firstName', "title": "Ad", "width": "20%" },
+            // Last Name column
+            { data: 'lastName', "title": "Soyad", "width": "20%" },
+            // Phone Number column
+            { data: 'phoneNumber', "title": "Telefon No.", "width": "20%" },
+        ],
                     "language": {
                         "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Turkish.json" // Load Turkish language file
                     },
@@ -129,7 +132,8 @@
                         .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
                         .toLowerCase();
                 }
-            } 
+            }
 
+           
                 </script>
             }

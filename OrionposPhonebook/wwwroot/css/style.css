@@ -18,16 +18,16 @@ body {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     display: flex; /* Use flexbox for label and input alignment */
     align-items: center;
 }
 
 .form-control {
-    flex: 1; /* Take up remaining space */
-    margin-left: 10px; /* Adjust as needed */
-    padding: 6px 11px;
-    font-size: 14px;
+    flex: 1;
+    margin-left: 20px; 
+    padding: 10px 15px;
+    font-size: 16px; 
     line-height: 1.42857143;
     color: #555;
     background-color: #fff;
@@ -53,14 +53,14 @@ body {
     width: 472px;
     height: 48px;
     top: 572px;
-    left: 971px;
+    left: 975px;
     border-radius: 10px;
     border: 1px solid #333;
 }
 
 label {
     font-family: Arial;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 25px;
     letter-spacing: 0em;

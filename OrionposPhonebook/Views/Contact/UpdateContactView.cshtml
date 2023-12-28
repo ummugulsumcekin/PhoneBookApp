@@ -5,34 +5,48 @@
     ViewData["Title"] = "Telefon Güncelleme";
 }
 
-
 @if (ViewData["Error"] != null)
 {
     <p>@ViewData["Error"]</p>
 }
 
-@using (Html.BeginForm("UpdateContactForm", "Contact", new { contactId }, FormMethod.Post))
-{
-    <table>
-        <tr>
-            <td>Ad: </td>
-            <td>@Html.TextBoxFor(model => model.FirstName)</td>
-        </tr>
-        <tr>
-            <td>Soyad: </td>
-            <td>@Html.TextBoxFor(model => model.LastName)</td>
-        </tr>
-        <tr>
-            <td>Telefon Numarası: </td>
-            <td>@Html.TextBoxFor(model => model.PhoneNumber)</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Kayıt Güncelle" />
-            </td>
-        </tr>
-    </table>
-}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("UpdateContactForm", "Contact", new { contactId = contactId }, FormMethod.Post))
+                    {
+                        <h1 class="mb-4 text-center">Kayıt Düzenle</h1>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.FirstName, new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", required = "required" })
+                            <div class="invalid-feedback">Ad zorunludur.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.LastName, new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = "required" })
+                            <div class="invalid-feedback">Soyad zorunludur.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.PhoneNumber, new { @class = "form-label" })
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", required = "required" })
+                            <div class="invalid-feedback">Telefon Numarası zorunludur.</div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Kayıt Güncelle</button>
+                            <a href="@Url.Action("Index", "Contact")" class="btn btn-secondary">Vazgeç</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts
 {
