@@ -28,30 +28,7 @@
 
 <div class="container-fluid"> <br />
   
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
-
-    <!--AddContact  Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   
             <div class="row my-4">
                 <div class="col-12">
                     <button class="btn btn-primary mx-2" id="editSelected">Kişi Bilgisi Düzenle</button>
@@ -111,12 +88,14 @@
                             "ajax": { url: '/Contact/GetAllContacts' },
                             "columns": [
                                 { data: null, "render": function (data) { return '<input type="checkbox" class="contact-checkbox" data-id="' + data.id + '"/>'; }, "width": "3%" },
-                                { data: 'id', "visible": false },
-                                { data: 'firstName', "width": "20%" },
-                                { data: 'lastName', "width": "20%" },
-                                { data: 'phoneNumber', "width": "20%" },
-
-                    ], 
+                        { data: 'id', "visible": false },
+                        // First Name column
+                        { data: 'firstName', "title": "Ad", "width": "20%" },
+                        // Last Name column
+                        { data: 'lastName', "title": "Soyad", "width": "20%" },
+                        // Phone Number column
+                        { data: 'phoneNumber', "title": "Telefon No.", "width": "20%" },
+                    ],
                     "language": {
                         "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Turkish.json" // Load Turkish language file
                     },
