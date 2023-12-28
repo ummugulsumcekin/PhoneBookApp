@@ -24,8 +24,9 @@ The Phonebook Web Application is a modern MVC-based project developed with .NET 
 ![phonebook2](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/7a602713-b366-4ffd-a9c3-aca44ccb7ae5)
 ![phonebook3](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/d5665622-4496-44ac-82ab-2a48b4476f10)
 ![phonebook4](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/3ccb04dc-35df-4868-8976-5434caef6d21)
-![phonebook5](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/a96abb64-846c-4eb7-bee4-f783699b6826)
-![phonebook6](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/e44803ed-0edb-40c1-ac4c-b72b5fc4f78d)
+![Ekran görüntüsü 2023-12-29 011538](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/8f12851b-36ed-437c-8519-e18c0a8c2f7c)
+![Ekran görüntüsü 2023-12-29 011611](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/1d37ce1b-86ea-4fa8-9386-e7323c4cfdf5)
+
 ![phonebook7](https://github.com/ummugulsumcekin/PhoneBookApp/assets/102469765/81715ef3-c486-45e5-be1b-b02a5c27ba53)
 ## Features
 - **Soft Delete**: Implemented a soft delete mechanism for safer data removal.
