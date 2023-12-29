@@ -34,7 +34,6 @@ The Phonebook Web Application is a modern MVC-based project developed with .NET 
 - **Remember Me Feature**: Implemented a "Remember Me" option for the login process.
 - **Login Options**: Users can log in using either their username or email.
 - **jQuery Validation**: Client-side validation using jQuery for a seamless user experience.
-- **Loading Animation**: Display a loading GIF icon when the list page is loading.
 - **CRUD Operations**: Allows users to Add, Edit, and Delete contacts with modal structures.
 - **Search and Pagination**: Implemented JavaScript-based search and pagination for efficient data navigation.
 
